@@ -7,4 +7,6 @@ This is very useful because it makes it extremely difficult almost near impossib
 
 Even when you say "Its still loaded at the start of the program" These objects are deleted and the array/buffer is completely random, They wont be able to pick out each function in it.
 
+How this driver identifies Driver Functions & Recognizes them is through their FUNCTION_ID which is set by the user. This is some < 0x100 offset that is just an identifier for the function in its data struct. This is a possible security flaw/vulnerability but I dont say its a big issue because its just a (flag) at best and there is nothing special about it. ACs and AVs look for full pointers & addresses, Not 0x20 & 0x1F flags.
+
 ![Demo](https://raw.githubusercontent.com/i32-Sudo/SilentFunctionCaller/refs/heads/main/RVK.png)
