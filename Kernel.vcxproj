@@ -145,15 +145,11 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ae\Ae.cpp" />
     <ClCompile Include="entry.cpp" />
-    <ClCompile Include="Mem\memory_map.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ae\Ae.h" />
     <ClInclude Include="Encryption.hpp" />
     <ClInclude Include="imports.h" />
-    <ClInclude Include="Mem\memory_map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
