@@ -10,3 +10,4 @@ Even when you say "Its still loaded at the start of the program" These objects a
 How this driver identifies Driver Functions & Recognizes them is through their FUNCTION_ID which is set by the user. This is some < 0x100 offset that is just an identifier for the function in its data struct. This is a possible security flaw/vulnerability but I dont say its a big issue because its just a (flag) at best and there is nothing special about it. ACs and AVs look for full pointers & addresses, Not 0x20 & 0x1F flags.
 
 ![Demo](https://raw.githubusercontent.com/i32-Sudo/SilentFunctionCaller/refs/heads/main/RVK.png)
+( Its an ass project made to look good, just doing this for a school project )
