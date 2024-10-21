@@ -1,0 +1,62 @@
+;
+; Kernel.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = Kernel.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Kernel.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%Kernel.DeviceDesc% = Kernel_Device, Root\Kernel ; TODO: edit hw-id
+
+[Kernel_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+Kernel.sys
+
+;-------------- Service installation
+[Kernel_Device.NT.Services]
+AddService = Kernel,%SPSVCINST_ASSOCSERVICE%, Kernel_Service_Inst
+
+; -------------- Kernel driver install sections
+[Kernel_Service_Inst]
+DisplayName    = %Kernel.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\Kernel.sys
+
+[Kernel_Device.NT.Wdf]
+KmdfService = Kernel, Kernel_wdfsect
+
+[Kernel_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "Kernel Installation Disk"
+Kernel.DeviceDesc = "Kernel Device"
+Kernel.SVCDESC = "Kernel Service"
