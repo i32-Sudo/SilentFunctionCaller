@@ -10,11 +10,6 @@
 #include "Encryption.hpp"
 
 enum {
-	JMP = 0x1,
-	JMP_CONDITION = 0x2
-} Conditions;
-
-enum {
     ID_CHECK1 = 0x1,
     ID_CHECK2 = 0x2
 } Functions;
