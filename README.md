@@ -6,3 +6,5 @@ This project demonstrates how you can cache risky functions or functions you don
 This is very useful because it makes it extremely difficult almost near impossible to statically trace which functions are doing what (The arguments are a pretty big give-away) and when dynamically tracing its about the same if not harder because of kernel threading and the ability to debug kernel drivers (you cant really) making this useful for ACs and AVs.
 
 Even when you say "Its still loaded at the start of the program" These objects are deleted and the array/buffer is completely random, They wont be able to pick out each function in it.
+
+![Demo](https://raw.githubusercontent.com/i32-Sudo/SilentFunctionCaller/refs/heads/main/RV.png)
