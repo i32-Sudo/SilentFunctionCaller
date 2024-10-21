@@ -12,6 +12,5 @@ ReturnType SilentCALLAddress(INT FunctionID, Args... args) {
     DbgPrint("[--EXECUTING FUNCTION PTR(DECRYPTED)--]\n");
     using FunctionPtrType = ReturnType(*)(Args...);
     FunctionPtrType func = reinterpret_cast<FunctionPtrType>(Address);
-    DbgPrint("[--RETURNING--]\n");
     return func(args...);
 }
